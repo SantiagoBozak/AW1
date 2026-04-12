@@ -1,8 +1,8 @@
-//Mi Tienda
+//Tienda (Mickey Mouses)
 
 Alumno: Bozak Santiago Hernan
 
-//Descripción
+//Descripcion del proyecto
 El proyecto este trata de una tienda de venta de diferentes tipos de mouses, ya sean cableados, inalambricos y la gama alta de gaming.
 
 // Funcionalidades
