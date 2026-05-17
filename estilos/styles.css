@@ -51,7 +51,7 @@ nav a {
 
 .grid-productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Esto lo uso tambien para que se ajuste dependiendo de la pantalla, tipo celular, tablet etc*/
   gap: 15px;
 }
 
@@ -89,7 +89,7 @@ nav a {
 
 .form-container input {
   width: 90%;
-  margin: 5px 0;
+  margin: 5px;
 }
 
 .form-container button {
