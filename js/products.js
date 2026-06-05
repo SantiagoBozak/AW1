@@ -1,33 +1,54 @@
-document.querySelectorAll(".card").forEach(card => {
+fetch("../data/productos.json")
+  .then(response => response.json())
+  .then(productos => {
 
-    const controls = document.createElement("div");
+    const contenedor = document.getElementById("productos");
+    const categoriaPagina = document.body.dataset.categoria;
 
-    let cantidad = 1;
+    if (!contenedor) return;
 
-    controls.innerHTML = `
-        <button class="menos">-</button>
-        <span>${cantidad}</span>
-        <button class="mas">+</button>
-    `;
+    productos
+        .filter(producto =>
+        !categoriaPagina ||
+        producto.categoria === categoriaPagina
+        )
+        .forEach(producto => {
 
-    card.appendChild(controls);
+      contenedor.innerHTML += `
+        <div class="card">
 
-    const menos = controls.querySelector(".menos");
-    const mas = controls.querySelector(".mas");
-    const texto = controls.querySelector("span");
+          <img src="${producto.imagen}" alt="${producto.nombre}">
 
-    mas.addEventListener("click", () => {
-        cantidad++;
-        texto.textContent = cantidad;
+          <div class="card-content">
+
+            <h3>${producto.nombre}</h3>
+
+            <p>${producto.descripcion}</p>
+
+            <h4>$${producto.precio}</h4>
+
+            <button onclick="agregarAlCarrito(${producto.id})">
+              Agregar al carrito
+            </button>
+
+          </div>
+
+        </div>
+      `;
     });
+  });
 
-    menos.addEventListener("click", () => {
+function agregarAlCarrito(id) {
 
-        if(cantidad > 1){
-            cantidad--;
-            texto.textContent = cantidad;
-        }
+  let carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
 
-    });
+  carrito.push(id);
 
-});
+  localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+  );
+
+  alert("Producto agregado");
+}

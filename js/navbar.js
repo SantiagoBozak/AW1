@@ -9,7 +9,9 @@ const paginas = [
 
   { titulo: "Login", rutaRoot: "./page/login.html", rutaPage: "./login.html" },
 
-  { titulo: "Registro", rutaRoot: "./page/registro.html", rutaPage: "./registro.html" }
+  { titulo: "Registro", rutaRoot: "./page/registro.html", rutaPage: "./registro.html" },
+
+  { titulo: "Carrito", rutaRoot: "./page/carrito.html", rutaPage: "./carrito.html" }
 ];
 
 function crearNavbar() {
@@ -44,15 +46,20 @@ function crearNavbar() {
 
   const usuario = sessionStorage.getItem("usuario");
 
-if (usuario) {
+  if (usuario) {
+
+    contenido += `
+      <li>
+        <a href="#" id="logoutBtn">Logout</a>
+      </li>
+    `;
+  }
 
   contenido += `
-    <li>
-      <a href="#" id="logoutBtn">Logout</a>
-    </li>
+        </ul>
+      </div>
+    </nav>
   `;
-
-}
 
   navbar.innerHTML = contenido;
 
@@ -64,7 +71,7 @@ if (usuario) {
 
       sessionStorage.removeItem("usuario");
 
-      window.location.href = "/page/login.html";
+      window.location.href = "./login.html";
 
     });
 

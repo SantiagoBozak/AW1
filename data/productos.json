@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "VXE R1 SE",
+    "categoria": "wireless",
+    "descripcion": "Mouse inalámbrico ultraliviano",
+    "precio": 18000,
+    "imagen": "../Imagenes_Mouses/VXE_R1_SE.webp"
+  },
+  {
+    "id": 2,
+    "nombre": "Mchose K7",
+    "categoria": "wired",
+    "descripcion": "Mouse cableado",
+    "precio": 22000,
+    "imagen": "../Imagenes_Mouses/Mchosek7.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "GravaStar Mercury",
+    "categoria": "gaming",
+    "descripcion": "Mouse gaming premium",
+    "precio": 55000,
+    "imagen": "../Imagenes_Mouses/GravaStarMercury.webp"
+  }
+]

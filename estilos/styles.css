@@ -116,3 +116,16 @@ nav a {
   background-color: var(--color-accent);
   border: none;
 }
+
+#carrito-container .card img {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#carrito-container .card {
+  max-width: 300px;
+  margin: 20px auto;
+}
