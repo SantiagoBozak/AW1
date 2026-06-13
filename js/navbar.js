@@ -28,6 +28,9 @@ function crearNavbar() {
         <h1 class="logo">👌 Mickey Mouses 👌</h1>
         <ul>
   `;
+  //Mejora Etapa 4
+  const carrito = 
+    JSON.parse(localStorage.getItem("carrito")) || [];
 
   paginas.forEach(pagina => {
 
@@ -35,10 +38,18 @@ function crearNavbar() {
       ? pagina.rutaPage
       : pagina.rutaRoot;
 
+    let tituloMostrar = pagina.titulo;
+
+    if (pagina.titulo === "Carrito") {
+
+      tituloMostrar = `Carrito (${carrito.length})`;
+
+    }
+    
     contenido += `
       <li>
         <a href="${ruta}">
-          ${pagina.titulo}
+          ${tituloMostrar}
         </a>
       </li>
     `;
@@ -76,7 +87,19 @@ function crearNavbar() {
     });
 
   }
-
 }
 
 crearNavbar();
+
+//Mejora Etapa 4
+const bienvenida =
+  document.getElementById("bienvenida");
+
+  const usuario =
+  sessionStorage.getItem("usuario");
+
+  if (bienvenida && usuario) {
+
+  bienvenida.textContent =
+    `Hola!!! ${usuario} 😊😊😊`;
+  }

@@ -84,11 +84,15 @@ nav a {
 
 
 .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 15px;
+  gap: 10px;
 }
 
-.card button {
+.card-content > button {
   width: 100%;
   background-color: var(--color-accent);
   border: none;
@@ -128,4 +132,51 @@ nav a {
 #carrito-container .card {
   max-width: 300px;
   margin: 20px auto;
+}
+
+#vaciarCarritoBtn {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#bienvenida {
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.cantidad-control button {
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-accent);
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cantidad-control span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
 }

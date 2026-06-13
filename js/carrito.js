@@ -8,6 +8,15 @@ fetch("../data/productos.json")
     const contenedor =
       document.getElementById("carrito-container");
 
+    if (carrito.length === 0) {
+
+      contenedor.innerHTML = `
+        <h3>No hay productos en el carrito</h3>
+      `;
+
+      return;
+    }
+      
     if (!contenedor) return;
 
     carrito.forEach(id => {
@@ -35,3 +44,20 @@ fetch("../data/productos.json")
     });
 
   });
+  //Mejora Etapa 4
+  const vaciarCarritoBtn =
+  document.getElementById("vaciarCarritoBtn");
+
+if (vaciarCarritoBtn) {
+
+  vaciarCarritoBtn.addEventListener("click", () => {
+
+    localStorage.removeItem("carrito");
+
+    alert("Carrito vaciado");
+
+    location.reload();
+
+  });
+
+}

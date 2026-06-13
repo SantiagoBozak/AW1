@@ -27,9 +27,25 @@ fetch("../data/productos.json")
 
             <h4>$${producto.precio}</h4>
 
-            <button onclick="agregarAlCarrito(${producto.id})">
-              Agregar al carrito
-            </button>
+            <div class="cantidad-control">
+
+              <button onclick="cambiarCantidad(${producto.id}, -1)">
+              -
+              </button>
+
+              <span id="cantidad-${producto.id}">
+              1
+              </span>
+
+              <button onclick="cambiarCantidad(${producto.id}, 1)">
+              +
+              </button>
+
+            </div>
+
+<button onclick="agregarAlCarrito(${producto.id})">
+  Agregar al carrito
+</button>
 
           </div>
 
@@ -51,4 +67,21 @@ function agregarAlCarrito(id) {
   );
 
   alert("Producto agregado");
+}
+
+function cambiarCantidad(id, cambio) {
+
+  const cantidadSpan =
+    document.getElementById(`cantidad-${id}`);
+
+  let cantidad =
+    parseInt(cantidadSpan.textContent);
+
+  cantidad += cambio;
+
+  if (cantidad < 1) {
+    cantidad = 1;
+  }
+
+  cantidadSpan.textContent = cantidad;
 }
