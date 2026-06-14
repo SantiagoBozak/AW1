@@ -76,17 +76,21 @@ function crearNavbar() {
 
   const logoutBtn = document.getElementById("logoutBtn");
 
-  if (logoutBtn) {
+if (logoutBtn) {
 
-    logoutBtn.addEventListener("click", () => {
+  logoutBtn.addEventListener("click", () => {
 
-      sessionStorage.removeItem("usuario");
+    sessionStorage.removeItem("usuario");
 
-      window.location.href = "./login.html";
+    const rutaLogin = estamosEnPage
+      ? "./login.html"
+      : "./page/login.html";
 
-    });
+    window.location.href = rutaLogin;
 
-  }
+  });
+
+}
 }
 
 crearNavbar();

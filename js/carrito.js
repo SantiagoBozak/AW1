@@ -8,23 +8,16 @@ fetch("../data/productos.json")
     const contenedor =
       document.getElementById("carrito-container");
 
-    if (carrito.length === 0) {
-
-      contenedor.innerHTML = `
-        <h3>No hay productos en el carrito</h3>
-      `;
-
-      return;
-    }
-      
-    if (!contenedor) return;
+    let total = 0;
 
     carrito.forEach(id => {
 
       const producto =
         productos.find(p => p.id === id);
 
-      if (producto) {
+      if(producto){
+
+        total += producto.precio;
 
         contenedor.innerHTML += `
           <div class="card">
@@ -43,18 +36,31 @@ fetch("../data/productos.json")
 
     });
 
+    const totalCompra =
+      document.getElementById("totalCompra");
+
+    if (totalCompra) {
+
+      totalCompra.textContent =
+        `Total: $${total}`;
+
+    }
+
   });
-  //Mejora Etapa 4
-  const vaciarCarritoBtn =
+
+const vaciarCarritoBtn =
   document.getElementById("vaciarCarritoBtn");
 
 if (vaciarCarritoBtn) {
 
   vaciarCarritoBtn.addEventListener("click", () => {
 
-    localStorage.removeItem("carrito");
+    const confirmar =
+      confirm("¿Seguro que querés vaciar el carrito?");
 
-    alert("Carrito vaciado");
+    if (!confirmar) return;
+
+    localStorage.removeItem("carrito");
 
     location.reload();
 
